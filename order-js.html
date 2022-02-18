@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <table>
+        <tr>
+            <td colspan="2">
+               <h2>Pizza order</h2> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Size
+            </td>
+            <td>
+                <input id="s_28" type="radio" name="size" value="28" checked /> 28cm <br />
+                <input id="s_32" type="radio" name="size" value="32" /> 32cm <br />
+                <input id="s_42" type="radio" name="size" value="42" /> 42cm <br />
+                <input id="s_50" type="radio" name="size" value="50" /> 50cm <br />
+            </td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>
+                <select id="name">
+                    <option disabled selected>Choose...</option>
+                    <option value="Margarita">Margarita</option>
+                    <option value="Marinara">Marinara</option>
+                    <option value="Prosciutto">Prosciutto</option>
+                    <option value="Capriciossa">Capriciossa</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Notes</td>
+            <td>
+                <textarea id="notes" cols="50" rows="8"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button id="order">Order</button>
+            </td>
+        </tr>
+    </table>
+
+<script>
+
+
+
+    const rbS28 = document.getElementById("s_28")
+    const rbS32 = document.getElementById("s_32")
+    const rbS42 = document.getElementById("s_42")
+    const rbS50 = document.getElementById("s_50")
+    const selName = document.getElementById("name")
+    const notes = document.getElementById("notes")
+    const btnOrder = document.getElementById("order")
+
+
+function click_order(){
+    let ispis = "<h1>Order</h1>" 
+    ispis += "<h2>" + selName.value + "</h2>"
+    if(rbS28.checked === true){
+        ispis += "<p><b>Size:</b> 28cm</p>"
+    } else if(rbS32.checked === true){
+        ispis += "<p><b>Size:</b> 32cm</p>"
+    } else if(rbS42.checked === true){
+        ispis += "<p><b>Size:</b> 42cm</p>"
+    } else {
+        ispis += "<p><b>Size:</b> 50cm</p>"
+    }
+
+    ispis += "<p><b>Notes: </b> " + notes.value + "</p>"
+    win_order = open("", "_blank", "height=500,width=350")
+    win_order.window.document.write(ispis)
+
+   
+}
+btnOrder.onclick = click_order
+</script>
+</body>
+</html>

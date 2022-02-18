@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <table>
+        <tr>
+            <td>Unesite novcanu vrednost:</td>
+            <td colspan="3"><input id="novac" type="number"/></td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">Konvertuj </td>
+            <td>
+                <input id="iz" type="text" />
+            </td>
+            <td>u</td>
+            <td>
+                <input id="u" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <button id="konvertuj">konverzija</button>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+    <script>
+        const inputNovac = document.getElementById("novac")
+        const inputIz = document.getElementById("iz")
+        const inputU = document.getElementById("u")
+        const btnKonvertuj = document.getElementById("konvertuj")
+
+        function klik_konvertuj() {
+            const v = Number(inputNovac.value)
+            if(inputIz.value === "rsd" && inputU.value === "eur"){
+                alert("Konverzija" + (v / 117.5221)
+                )
+            } else if(inputIz.value === "eur" && inputU.value === "rsd") {
+                alert("Konverzija:" + (v * 117.5221))
+            } else {
+                alert("dozvoljene vrijednosti : eur/rsd")
+            }
+        }
+
+        btnKonvertuj.onclick = klik_konvertuj
+    </script>
+</body>
+</html>

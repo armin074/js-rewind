@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Unesite novcanu vrijednost</td>
+            <td>
+                <input id="novac" type="number" min="1" value="1" />
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right;">
+                Konvertuj
+            </td>
+            <td>
+                <input id="rsd_eur" type="radio" name="option" checked /> RSD &rarr; EUR
+                <input id="eur_rsd" type="radio" name="option" /> EUR &rarr; RSD
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button id="konvertuj">Konverzija</button></td>
+        </tr>
+    </table>
+
+
+<script>
+    const inputNovac = document.getElementById("novac")
+    const rbRSD_EUR = document.getElementById("rsd_eur")
+    const btnKonvertuj = document.getElementById("konvertuj")
+
+    function klik_konvertuj() {
+        const v = Number(inputNovac.value)
+        if( v < 1 ){
+            alert("Morate uneti minimalni iznos od 1")
+        } else {
+            if(rbRSD_EUR.checked === true ) {
+                alert("Konverzija " + (v / 117.5221))
+            }else {
+                alert("Konverzija: " + ( v * 117.5221))
+            }
+        }
+    }
+
+    btnKonvertuj.onclick = klik_konvertuj;
+</script>
+</body>
+</html>
