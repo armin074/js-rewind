@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Praksica</title>
+    <style>
+        #container{
+            display:flex;
+            width: 650px;
+            height: 450px;
+        }
+        #prostor {
+            flex-basis: 50%;
+            flex-grow: 1;
+            border: 1px solid lightslategray;
+            margin-right: 10px;
+
+        }
+
+        #prikaz{
+            flex-basis: 40%;
+            overflow-y: auto;
+            border: 1px solid lightslategray;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div id="container">
+        <div id="prostor">
+           <p>Tekst:</p> <br />
+
+           <input id="input" type="text" /> <br/>
+           <button id="prikazi">Prikazi</button>
+        </div>
+        <div id="prikaz">
+
+        </div>
+    </div>
+
+<script>
+    const inputText = document.getElementById("input")
+    const btnPrikazi = document.getElementById("prikazi")
+    const prikaz = document.getElementById("prikaz")
+    function trenutno_vrijeme(){
+        const sada = new Date()
+        const hh = (sada.getHours() < 10 ? "0" : "") +
+                    sada.getHours()
+        const mm = (sada.getMinutes() < 10 ? "0" : "") + sada.getMinutes()
+        const ss = (sada.getSeconds() < 10 ? "0" : "") + sada.getSeconds()
+        return hh + ":" + mm + ":" + ss
+    }
+    function click_prikazi(){
+        prikaz.innerHTML +=
+        "<div><b>Click event:</b> " + inputText.value + "</div>"
+    }
+
+    function mouseenter(){
+        prikaz.innerHTML +=
+        "<div><b style='color: green'>Mouse enter: </b>" + trenutno_vrijeme() + "</div>"
+    }
+
+    function mouseleave(){
+        prikaz.innerHTML +=
+        "<div><b style='color: red'>Mouse leave: </b>" + trenutno_vrijeme() + "</div>"
+    }
+
+    btnPrikazi.onmouseenter = mouseenter
+    btnPrikazi.onmouseleave = mouseleave
+    btnPrikazi.onclick = click_prikazi
+</script>
+</body>
+</html>
