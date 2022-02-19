@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input slider</title>
+</head>
+<body>
+    
+
+    <p>
+        R: <input id="r" type="range"
+            min="0" max="255" value="0"/>
+            <input id="tr" type="number"
+            min="0" max="255" value="0"/>
+    </p>
+    <p>
+        G: <input id="g" type="range"
+            min="0" max="255" value="0"/>
+            <input id="tg" type="number"
+            min="0" max="255" value="0"/>
+    </p>
+    <p>
+        B: <input id="b" type="range"
+            min="0" max="255" value="0"/>
+            <input id="tb" type="number"
+            min="0" max="255" value="0"/>
+    </p>
+    <p>
+        Opacity: <input id="o" type="range"
+            min="0" max="255" value="0"/>
+            <input id="to" type="number"
+            min="0" max="100" value="0"/>
+    </p>
+    <div id="preview" style="width: 100px;height:100px;border: 1px solid rgb(61, 61, 61);"></div>
+
+
+
+
+
+    <script>
+        const r = document.getElementById("r")
+        const tr = document.getElementById("tr")
+        const b = document.getElementById("b")
+        const tb = document.getElementById("tb")
+        const g = document.getElementById("g")
+        const tg = document.getElementById("tg")
+        const o = document.getElementById("o")
+        const to = document.getElementById("to")
+        const pr = document.getElementById("preview")
+
+        function move_r(){
+            const r_v = r.value 
+            const g_v = g.value
+            const b_v = b.value 
+            const o_v = (100 - o.value) / 100
+            pr.style.backgroundColor = 
+            "rgba(" + r_v + "," + g_v + "," + b_v + "," + o_v + ")"
+
+            tr.value = r.value
+            tg.value = g.value
+            tb.value = b.value
+            to.value = o.value
+        }
+
+        r.onmousemove = move_r
+        g.onmousemove = move_r
+        b.onmousemove = move_r
+        o.onmousemove = move_r
+
+        // function move_b(){
+        //     const r_v = r.value 
+        //     const g_v = g.value
+        //     const b_v = b.value 
+        //     const o_v = (100 - o.value) / 100
+        //     pr.style.backgroundColor = 
+        //     "rgba(" + r_v + "," + g_v + "," + b_v + "," + o_v + ")"
+        // }
+
+        // function move_g(){
+        //     const r_v = r.value 
+        //     const g_v = g.value
+        //     const b_v = b.value 
+        //     const o_v = (100 - o.value) / 100
+        //     pr.style.backgroundColor = 
+        //     "rgba(" + r_v + "," + g_v + "," + b_v + "," + o_v + ")"
+        // }
+
+        // function move_o(){
+        //     const r_v = r.value 
+        //     const g_v = g.value
+        //     const b_v = b.value 
+        //     const o_v = (100 - o.value) / 100
+        //     pr.style.backgroundColor = 
+        //     "rgba(" + r_v + "," + g_v + "," + b_v + "," + o_v + ")"
+        // }
+    </script>
+</body>
+</html>
